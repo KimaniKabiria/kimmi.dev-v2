@@ -1,4 +1,4 @@
-import Nav from "./nav";
+import Nav from "./Nav";
 import { Container, useColorModeValue } from "@chakra-ui/react";
 
 export default function Main({ children }) {

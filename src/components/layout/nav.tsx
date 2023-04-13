@@ -35,7 +35,7 @@ import Image from "next/image";
 import Logo from "../../assets/images/logo.png";
 import LogoWhite from "../../assets/images/logo_white.png";
 
-export default function WithSubnavigation() {
+export default function Nav() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
 
