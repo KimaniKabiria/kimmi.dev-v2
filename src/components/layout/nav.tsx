@@ -6,7 +6,7 @@ import {
   Button,
   Stack,
   Collapse,
-  Icon,
+  // Icon,
   Link,
   Popover,
   PopoverTrigger,
@@ -24,25 +24,38 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
+import { Icon } from "@chakra-ui/react";
+import { GiThink } from "react-icons/gi";
+import { FaProjectDiagram, FaLaptopCode, FaTools } from "react-icons/fa";
+import { MdContacts, MdTimeline } from "react-icons/md";
+
+import Image from "next/image";
+// import { Image } from '@chakra-ui/react'
+
+import Logo from "../../assets/images/logo.png";
+import LogoWhite from "../../assets/images/logo_white.png";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box position={"sticky"} top={"0"} zIndex={"sticky"}>
+    <Box position={"sticky"} top={"0"} zIndex={"sticky"} paddingTop={2}>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
+        bg={useColorModeValue(
+          "rgba(252, 246, 243, 0.75)",
+          "rgba(23, 25, 35, 0.75)"
+        )}
         color={useColorModeValue("gray.600", "white")}
-        minH={"80px"}
-        py={{ base: 2 }}
+        minH={"60px"}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"} 
+        align={"center"}
         borderRadius={"xl"}
         shadow={"lg"}
+        backdropFilter="saturate(150%) blur(3px)"
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -59,14 +72,16 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-            fontSize={"2xl"}
-          >
-            KimmiDevs
-          </Text>
+          {colorMode === "light" && (
+            <Flex>
+              <Image src={Logo} alt="Logo" width={165} />
+            </Flex>
+          )}
+          {colorMode === "dark" && (
+            <Flex>
+              <Image src={LogoWhite} alt="Logo" width={165} />
+            </Flex>
+          )}
 
           <Flex display={{ base: "none", md: "flex" }} ml={10} my={"auto"}>
             <DesktopNav />
@@ -93,18 +108,19 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkColor = useColorModeValue("#23074d", "gray.200");
+  const linkHoverColor = useColorModeValue("#c55333", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
     <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
+          <Icon as={navItem.icon} w={4} h={4} color={"#c55333"} />
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-                p={2}
+                px={2}
                 href={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
@@ -141,7 +157,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel, icon }: NavItem) => {
   return (
     <Link
       href={href}
@@ -149,18 +165,26 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("#fcf6f3", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
-          <Text
-            transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
-            fontWeight={500}
+          <Box
+            display={"inline-flex"}
+            gap={"8px"}
+            alignContent={"center"}
+            justifyItems={"center"}
           >
-            {label}
-          </Text>
-          <Text fontSize={"sm"}>{subLabel}</Text>
+            <Icon as={icon} w={4} h={4} color={"#c55333"} />
+            <Text
+              transition={"all .3s ease"}
+              _groupHover={{ color: "#c55333" }}
+              fontWeight={500}
+            >
+              {label}
+            </Text>
+          </Box>
+          <Text fontSize={"2xs"}>{subLabel}</Text>
         </Box>
         <Flex
           transition={"all .3s ease"}
@@ -171,7 +195,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={"#c55333"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -192,7 +216,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, children, href, icon }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -207,12 +231,21 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
+        <Box
+          display={"inline-flex"}
+          gap={"8px"}
+          alignContent={"center"}
+          justifyItems={"center"}
+          justifyContent={"center"}
         >
-          {label}
-        </Text>
+          <Icon as={icon} w={4} h={4} color={"#c55333"} />
+          <Text
+            fontWeight={600}
+            color={useColorModeValue("gray.600", "gray.200")}
+          >
+            {label}
+          </Text>
+        </Box>
         {children && (
           <Icon
             as={ChevronDownIcon}
@@ -236,7 +269,16 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           {children &&
             children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
-                {child.label}
+                <Box
+                  display={"flex"}
+                  gap={"8px"}
+                  alignContent={"center"}
+                  justifyItems={"center"}
+                  justifyContent={"center"}
+                >
+                  <Icon as={child.icon} w={4} h={4} color={"#c55333"} />
+                  {child.label}
+                </Box>
               </Link>
             ))}
         </Stack>
@@ -247,6 +289,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 
 interface NavItem {
   label: string;
+  icon: string;
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
@@ -254,41 +297,38 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Inspiration",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Learn Design",
+    label: "Projects",
+    icon: FaProjectDiagram,
     href: "#",
   },
   {
-    label: "Hire Designers",
+    label: "Work",
+    icon: FaLaptopCode,
+    children: [
+      {
+        label: "Skills & Tools",
+        icon: FaTools,
+        subLabel:
+          "A look at all the programming languages, libraries, and tools I've worked with.",
+        href: "#",
+      },
+      {
+        label: "Experience",
+        icon: MdTimeline,
+        subLabel:
+          "All about my freelance, self-employed, and professional work experience.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "My Thoughts",
+    icon: GiThink,
+    href: "https://themorningbeans.com",
+  },
+  {
+    label: "Contact",
+    icon: MdContacts,
     href: "#",
   },
 ];
