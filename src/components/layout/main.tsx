@@ -6,7 +6,7 @@ export default function Main({ children }) {
     <Container maxW="full" bg={useColorModeValue("#fcf6f3", "gray.800")}>
       <main className="">
         <Nav />
-        <div className="">
+        <div className="background-grid background-grid--fade-out">
           {children}
         </div>
       </main>

@@ -26,7 +26,12 @@ import {
 } from "@chakra-ui/icons";
 import { Icon } from "@chakra-ui/react";
 import { GiThink } from "react-icons/gi";
-import { FaProjectDiagram, FaLaptopCode, FaTools } from "react-icons/fa";
+import {
+  FaProjectDiagram,
+  FaLaptopCode,
+  FaTools,
+  FaGithub,
+} from "react-icons/fa";
 import { MdContacts, MdTimeline } from "react-icons/md";
 
 import Image from "next/image";
@@ -74,12 +79,12 @@ export default function Nav() {
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           {colorMode === "light" && (
             <Flex>
-              <Image src={Logo} alt="Logo" width={165} />
+              <Image src={Logo} alt="Logo" width={200} />
             </Flex>
           )}
           {colorMode === "dark" && (
             <Flex>
-              <Image src={LogoWhite} alt="Logo" width={165} />
+              <Image src={LogoWhite} alt="Logo" width={200} />
             </Flex>
           )}
 
@@ -94,6 +99,11 @@ export default function Nav() {
           direction={"row"}
           spacing={6}
         >
+          <Flex display={{ base: "none", md: "flex" }} ml={10} my={"auto"}>
+            <Button backgroundColor="transparent">
+              <FaGithub />
+            </Button>
+          </Flex>
           <Button onClick={toggleColorMode} bg={"transparent"}>
             {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
           </Button>
