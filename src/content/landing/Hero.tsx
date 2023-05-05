@@ -45,7 +45,7 @@ const Hero = () => {
 
   return (
     <div>
-      <Container maxW={"full"} overflow={"hidden"} py={{ base: 8, md: 24 }}>
+      <Container maxW={"full"} overflow={"hidden"} py={{ base: 8, md: 28 }}>
         <Stack
           direction={{ base: "column-reverse", lg: "row" }}
           spacing={6}

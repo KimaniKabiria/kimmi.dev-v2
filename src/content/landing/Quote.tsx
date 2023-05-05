@@ -7,17 +7,18 @@ function Quote() {
   return (
     <Box
       display={"flex"}
-      flexDirection={"row"}
+      flexDirection={{base: "column", sm: "row"}}
       justifyContent={"center"}
       alignContent={"cente"}
-      py={20}
+      alignItems={"center"}
+      py={{base: 6, sm: 20}}
       maxW={"full"}
     >
-      <Box w={40} h={28} p={6} color={"blackAlpha.300"}>
+      <Box w={{base: 20, sm: 40}} p={6} color={"blackAlpha.300"}>
         <QuoteIcon />
       </Box>
 
-      <Stack direction={"column"} w="50%" spacing={{ base: 1, sm: -1 }}>
+      <Stack direction={"column"} w={{base: "100%", sm: "50%"}}spacing={{ base: 1, sm: -1 }}>
         <Text
           fontWeight="medium"
           textAlign={{ base: "center", md: "left" }}
