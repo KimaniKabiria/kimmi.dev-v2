@@ -1,33 +1,37 @@
 import clsx from "clsx";
 import { Box, Stack, Text, chakra, useColorModeValue } from "@chakra-ui/react";
 
-import { BsQuote } from "react-icons/bs";
-import { CgQuote } from "react-icons/cg";
+import { QuoteIcon } from "@/components/Icons";
 
 function Quote() {
   return (
     <Box
       display={"flex"}
+      flexDirection={"row"}
       justifyContent={"center"}
       alignContent={"cente"}
-      p={20}
+      py={20}
+      maxW={"full"}
     >
-      <Stack direction={"column"} spacing={-1}>
-        <Stack direction={"row"} spacing={{ base: 1, sm: 3 }}>
+      <Box w={40} h={28} p={6} color={"blackAlpha.300"}>
+        <QuoteIcon />
+      </Box>
+
+      <Stack direction={"column"} w="50%" spacing={{ base: 1, sm: -1 }}>
+        <Text
+          fontWeight="medium"
+          textAlign={{ base: "center", md: "left" }}
+          fontSize={{ base: "3xl", md: "4xl" }}
+        >
+          I Would love to
+        </Text>
+        <Stack direction={"row"} alignItems={"center"}>
+          <Box backgroundColor={"blackAlpha.400"} w={12} h={2} />
           <Text
             fontWeight="medium"
             textAlign={{ base: "center", md: "left" }}
-            fontSize={{ base: "5xl", md: "6xl" }}
-            color={"#c55333"}
+            fontSize={{ base: "3xl", md: "5xl" }}
           >
-            &ldquo;
-          </Text>
-          <Text
-            fontWeight="medium"
-            textAlign={{ base: "center", md: "left" }}
-            fontSize={{ base: "3xl", md: "6xl" }}
-          >
-            I Would love to &nbsp;
             <chakra.span
               bg={useColorModeValue(
                 "linear-gradient(transparent 50%, rgba(35, 7, 77, 0.10) 50%)",
@@ -38,13 +42,13 @@ function Quote() {
             >
               Change the world
             </chakra.span>
-            ,
           </Text>
+          <Box backgroundColor={"blackAlpha.400"} w={12} h={2} />
         </Stack>
         <Text
           fontWeight="medium"
           textAlign={{ base: "center", md: "left" }}
-          fontSize={{ base: "3xl", md: "6xl" }}
+          fontSize={{ base: "3xl", md: "4xl" }}
         >
           but they wont share the &nbsp;
           <chakra.span
@@ -58,6 +62,11 @@ function Quote() {
             source code
           </chakra.span>
         </Text>
+        <Text
+          fontWeight="medium"
+          textAlign={{ base: "center", md: "left" }}
+          fontSize={{ base: "3xl", md: "5xl" }}
+        ></Text>
       </Stack>
     </Box>
   );
