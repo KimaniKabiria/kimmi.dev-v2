@@ -1,12 +1,16 @@
 import Nav from "./Nav";
 import { Container, useColorModeValue } from "@chakra-ui/react";
 
-export default function Main({ children }) {
+interface MainProps {
+  children: React.ReactNode;
+}
+
+export default function Main({ children }: MainProps) {
   return (
     <Container maxW="full" bg={useColorModeValue("#fcf6f3", "gray.800")}>
       <main className="">
         <Nav />
-        <div className="background-grid background-grid--fade-out">
+        <div className="">
           {children}
         </div>
       </main>
