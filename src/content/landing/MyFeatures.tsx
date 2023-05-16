@@ -10,9 +10,9 @@ export default function MyFeatures() {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
           icon={<Icon as={BsStars} w={10} h={10} />}
-          title={"Clean & Intuitive"}
+          title={"Intelligent Products"}
           text={
-            "Keep the UI clean with a modern touch without compromising UX."
+            "Creating products that are learn and grow on their own."
           }
         />
         <Feature

@@ -21,6 +21,7 @@ import {
   SiFlutter,
   SiVisualstudiocode,
   SiFigma,
+  SiPython
 } from "react-icons/si";
 import Dev from "../../assets/lotties/94388-african-developer.json";
 import Call from "../../assets/lotties/icons/call.json";
@@ -101,15 +102,15 @@ const Hero = () => {
                 color={useColorModeValue("gray.700", "white")}
                 textAlign={{ base: "center", md: "left" }}
               >
-                A{" "}
+                An{" "}
                 <chakra.span
                   bg="linear-gradient(transparent 50%, rgba(197, 83, 51, 0.20) 50%)"
                   color={useColorModeValue("#23074d", "white")}
                   fontWeight={"semibold"}
                 >
-                  Front-End Web & Mobile Developer | UI / UX Designer
+                  A.I Engineer | Front-End Engineer | UI / UX Designer
                 </chakra.span>{" "}
-                , who loves intuitive, clean and modern UI design.
+                , who loves creating intelligent and beautiful looking products.
               </Text>
               <Stack
                 direction={{ base: "column", sm: "row" }}
@@ -158,6 +159,7 @@ const Hero = () => {
                 current favorite tech stack/tools:
               </Text>
               <Stack direction="row" spacing={5}>
+                <SiPython className="w-6 h-6" />
                 <SiNextdotjs className="w-6 h-6" />
                 <SiReact className="w-6 h-6" />
                 <SiTailwindcss className="w-6 h-6" />

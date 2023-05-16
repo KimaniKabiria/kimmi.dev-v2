@@ -34,11 +34,8 @@ function Quote() {
             fontSize={{ base: "3xl", md: "5xl" }}
           >
             <chakra.span
-              bg={useColorModeValue(
-                "linear-gradient(transparent 50%, rgba(35, 7, 77, 0.10) 50%)",
-                "linear-gradient(transparent 50%, rgba(197, 83, 51, 0.10) 50%)"
-              )}
-              color={useColorModeValue("blackAlpha.700", "#c55333")}
+              bg={"linear-gradient(transparent 50%, rgba(197, 83, 51, 0.10) 50%)"}
+              color={"#c55333"}
               fontWeight={"semibold"}
             >
               Change the world
@@ -53,11 +50,8 @@ function Quote() {
         >
           but they wont share the &nbsp;
           <chakra.span
-            bg={useColorModeValue(
-              "linear-gradient(transparent 50%, rgba(35, 7, 77, 0.10) 50%)",
-              "linear-gradient(transparent 50%, rgba(197, 83, 51, 0.10) 50%)"
-            )}
-            color={useColorModeValue("blackAlpha.700", "#c55333")}
+            bg={"linear-gradient(transparent 50%, rgba(197, 83, 51, 0.10) 50%)"}
+            color={"#c55333"}
             fontWeight={"semibold"}
           >
             source code
