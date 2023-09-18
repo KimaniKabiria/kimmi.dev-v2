@@ -6,7 +6,7 @@ import {
   Button,
   Stack,
   Collapse,
-  // Icon,
+  Icon,
   Link,
   Popover,
   PopoverTrigger,
@@ -24,7 +24,6 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
-import { Icon } from "@chakra-ui/react";
 import { GiThink } from "react-icons/gi";
 import {
   FaProjectDiagram,
@@ -298,8 +297,8 @@ const MobileNavItem = ({ label, children, href, icon }: NavItem) => {
 };
 
 interface NavItem {
-  label: string;
-  icon: string;
+  label?: string;
+  icon?: string;
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
