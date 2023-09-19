@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Nav from "./Nav";
+import Footer from "./Footer"
 import { Container, useColorModeValue } from "@chakra-ui/react";
 
 interface MainProps {
@@ -17,6 +18,7 @@ export default function Main({ children }: MainProps) {
       >
         <Nav />
         <div className="px-4 sm:px-20 2xl:px-32">{children}</div>
+        <Footer />
       </main>
     </Container>
   );
