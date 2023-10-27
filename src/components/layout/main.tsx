@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Nav from "./Nav";
+import Nav from "./nav";
 import Footer from "./Footer";
 import { Container, useColorModeValue } from "@chakra-ui/react";
 

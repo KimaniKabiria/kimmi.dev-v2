@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Main from "@/components/layout/Main";
+import Main from "@/components/layout/main";
 
 import Hero from "@/content/landing/Hero";
 import MyFeatures from "@/content/landing/MyFeatures";
