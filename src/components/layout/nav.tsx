@@ -38,6 +38,55 @@ import Image from "next/image";
 
 import Logo from "../../assets/images/logo.png";
 import LogoWhite from "../../assets/images/logo_white.png";
+import { IconType } from "react-icons/lib";
+
+
+interface NavItem {
+  label: string;
+  icon: IconType;
+  subLabel?: string;
+  children?: Array<NavItem>;
+  href?: string;
+}
+
+
+const NAV_ITEMS: Array<NavItem> = [
+  {
+    label: "Projects",
+    icon: FaProjectDiagram,
+    href: "#",
+  },
+  {
+    label: "Work",
+    icon: FaLaptopCode,
+    children: [
+      {
+        label: "Skills & Tools",
+        icon: FaTools,
+        subLabel:
+          "A look at all the programming languages, libraries, and tools I've worked with.",
+        href: "#",
+      },
+      {
+        label: "Experience",
+        icon: MdTimeline,
+        subLabel:
+          "All about my freelance, self-employed, and professional work experience.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "My Thoughts",
+    icon: GiThink,
+    href: "https://themorningbeans.com",
+  },
+  {
+    label: "Contact",
+    icon: MdContacts,
+    href: "#",
+  },
+];
 
 export default function Nav() {
   const { isOpen, onToggle } = useDisclosure();
@@ -295,49 +344,3 @@ const MobileNavItem = ({ label, children, href, icon }: NavItem) => {
     </Stack>
   );
 };
-
-interface NavItem {
-  label?: string;
-  icon?: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Projects",
-    icon: FaProjectDiagram,
-    href: "#",
-  },
-  {
-    label: "Work",
-    icon: FaLaptopCode,
-    children: [
-      {
-        label: "Skills & Tools",
-        icon: FaTools,
-        subLabel:
-          "A look at all the programming languages, libraries, and tools I've worked with.",
-        href: "#",
-      },
-      {
-        label: "Experience",
-        icon: MdTimeline,
-        subLabel:
-          "All about my freelance, self-employed, and professional work experience.",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "My Thoughts",
-    icon: GiThink,
-    href: "https://themorningbeans.com",
-  },
-  {
-    label: "Contact",
-    icon: MdContacts,
-    href: "#",
-  },
-];
