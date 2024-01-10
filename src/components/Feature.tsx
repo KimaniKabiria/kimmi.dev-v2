@@ -1,51 +1,29 @@
-import { ReactElement } from "react";
-import {
-  Box,
-  SimpleGrid,
-  Icon,
-  Text,
-  Stack,
-  Flex,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
+import clsx from "clsx";
 
-interface FeatureProps {
+import type { ReactElement } from "react";
+
+interface FeaturedProps {
+  icon: ReactElement;
   title: string;
   text: string;
-  icon: ReactElement;
 }
 
-const Feature = ({ title, text, icon }: FeatureProps) => {
+function Featured({ icon, title, text }: FeaturedProps) {
   return (
-    <Stack
-      borderWidth="1px"
-      borderRadius="xl"
-      padding={6}
-      backgroundColor={useColorModeValue("blackAlpha.200", "whiteAlpha.100")}
-      shadow={"lg"}
-      _hover={{shadow: "md"}}
-      backdropFilter="saturate(150%) blur(1px)"
-    >
-      <Stack direction="row" spacing={5} align={"center"}>
-        <Flex
-          w={12}
-          h={12}
-          align={"center"}
-          justify={"center"}
-          color={"white"}
-          rounded={"full"}
-          bg={"gray.100"}
-          mb={1}
-          textColor={"#c55333"}
-        >
-          {icon}
-        </Flex>
-        <Text fontWeight={600}>{title}</Text>
-      </Stack>
-      <Text color={useColorModeValue("gray.600", "white")}>{text}</Text>
-    </Stack>
+    <div className="border-divider-light relative z-10 flex-1 rounded-2xl border">
+      <div className="border-divider-light absolute inset-x-0 inset-y-8 z-[-1] border-t" />
+      <div className="border-divider-light absolute inset-y-0 inset-x-8 z-[-1] border-l" />
+      <div className="-mt-0.5">
+        <div className="mt-4 mr-2 ml-4 flex items-center gap-6 rounded-full">
+          <div className="-m-2">{icon}</div>
+          <div className="truncate py-2 pr-4 text-sm font-bold">
+            {title}
+          </div>
+        </div>
+      </div>
+      <div className="p-4 pl-12 text-sm">{text}</div>
+    </div>
   );
-};
+}
 
-export default Feature;
+export default Featured;

@@ -55,7 +55,7 @@ const TOOLBOX_ITEMS: Array<ToolBoxItems> = [
 
 export default function Footer() {
   return (
-    <Box display="flex" width="full" p={20}>
+    <Box display="flex" width="full" p={{base: 10, md: 20}}>
       <Stack width="full">
         <Box
           display="flex"
@@ -63,10 +63,10 @@ export default function Footer() {
           width="full"
           justifyContent="center"
         >
-          <Text as="p" fontSize="xl" textAlign="center">
+          <Text as="p" fontSize={{base: "lg", md: "md"}} textAlign="center">
             This website was handcrafted with plenty cups of ☕
           </Text>
-          <Text as="p" fontSize="xl" textAlign="center">
+          <Text as="p" fontSize={{base: "lg", md: "md"}} textAlign="center">
             by <span className="font-semibold">Kimani Kabiria</span> using:
           </Text>
         </Box>
@@ -75,7 +75,7 @@ export default function Footer() {
             <>
               <Tooltip label={ToolBoxItem.label}>
                 <Link href={ToolBoxItem.href!}>
-                  <Icon as={ToolBoxItem.icon} w={8} h={8} />
+                  <Icon as={ToolBoxItem.icon} w={6} h={6} />
                 </Link>
               </Tooltip>
             </>
