@@ -54,7 +54,7 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Projects",
     icon: FaProjectDiagram,
-    href: "#",
+    href: "/projects",
   },
   {
     label: "Work",
@@ -125,16 +125,18 @@ export default function Nav() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          {colorMode === "light" && (
-            <Flex>
-              <Image src={Logo} alt="Logo" width={200} />
-            </Flex>
-          )}
-          {colorMode === "dark" && (
-            <Flex>
-              <Image src={LogoWhite} alt="Logo" width={200} />
-            </Flex>
-          )}
+          <Link href="/">
+            {colorMode === "light" && (
+              <Flex>
+                <Image src={Logo} alt="Logo" width={200} />
+              </Flex>
+            )}
+            {colorMode === "dark" && (
+              <Flex>
+                <Image src={LogoWhite} alt="Logo" width={200} />
+              </Flex>
+            )}
+          </Link>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10} my={"auto"}>
             <DesktopNav />
