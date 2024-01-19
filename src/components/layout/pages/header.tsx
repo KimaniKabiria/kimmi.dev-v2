@@ -39,7 +39,7 @@ function Header({
                     <ChakraBox
                         initial={animation.hide}
                         animate={animation.show}
-                        transition={{ delay: 0 }}
+                        transition={{ delay: 0 } as Transition<string & {}>}
                     >
                         <span
                             className='mb-1 block text-lg font-extrabold capitalize leading-none md:mb-0 md:text-2xl'
@@ -51,7 +51,7 @@ function Header({
                 <ChakraBox
                     initial={animation.hide}
                     animate={animation.show}
-                    transition={{ delay: 0.1 }}
+                    transition={{ delay: 0.1 } as Transition<string & {}>}
                 >
                     <h1
                         className='text-[2.5rem] font-bold leading-tight md:text-7xl md:leading-snug'
@@ -62,7 +62,7 @@ function Header({
                 <ChakraBox
                     initial={animation.hide}
                     animate={animation.show}
-                    transition={{ delay: 0.2 }}
+                    transition={{ delay: 0.2 } as Transition<string & {}>}
                 >
                 <Text fontSize={"xl"} color={""} >
                     {description}
