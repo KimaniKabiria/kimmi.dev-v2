@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { CSSTransition } from 'react-transition-group';
 import { motion, isValidMotionProp } from 'framer-motion';
 import { Box, SimpleGrid, Icon, Text, Stack, Flex, chakra, shouldForwardProp } from "@chakra-ui/react";
 
@@ -39,7 +40,7 @@ function Header({
                     <ChakraBox
                         initial={animation.hide}
                         animate={animation.show}
-                        transition={{ delay: 0 } as Transition<string & {}>}
+                        transition={{ delay: 0 } as CSSTransition}
                     >
                         <span
                             className='mb-1 block text-lg font-extrabold capitalize leading-none md:mb-0 md:text-2xl'
@@ -51,7 +52,7 @@ function Header({
                 <ChakraBox
                     initial={animation.hide}
                     animate={animation.show}
-                    transition={{ delay: 0.1 } as Transition<string & {}>}
+                    transition={{ delay: 0.1 } as CSSTransition}
                 >
                     <h1
                         className='text-[2.5rem] font-bold leading-tight md:text-7xl md:leading-snug'
@@ -62,7 +63,7 @@ function Header({
                 <ChakraBox
                     initial={animation.hide}
                     animate={animation.show}
-                    transition={{ delay: 0.2 } as Transition<string & {}>}
+                    transition={{ delay: 0.2 } as CSSTransition}
                 >
                 <Text fontSize={"xl"} color={""} >
                     {description}
